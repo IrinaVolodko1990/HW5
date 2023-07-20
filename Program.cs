@@ -67,3 +67,41 @@ Console.Write($"The sum of elements in odd positions = {countSumEvenNumbers(arra
 //элементов массива.
 //[3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76
 
+int size = new Random().Next(4, 10);
+//Console.WriteLine($"Size of array: {size}");
+double[] array = new double[size];
+
+void createArray(double[] arr)
+{
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = Math.Round(new Random().NextDouble(), 2);
+        Console.Write($"{arr[i]} ");
+    }
+}
+
+double searchMax(double[] arr)
+{
+    double max = arr[0];
+    for (int i = 1; i < arr.Length; i++)
+    {
+        if (arr[i] > max) max = arr[i];
+    }
+    return max;
+}
+
+double searchMin(double[] arr)
+{
+    double min = arr[0];
+    for (int i = 1; i < arr.Length; i++)
+    {
+        if (arr[i] < min) min = arr[i];
+    }
+    return min;
+}
+createArray(array);
+Console.WriteLine();
+// Console.WriteLine($"Max = {searchMax(array)}");
+// Console.WriteLine($"Min = {searchMin(array)}");
+Console.WriteLine($"{searchMax(array)} - {searchMin(array)}  = {searchMax(array) - searchMin(array)}");
+
